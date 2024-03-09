@@ -1,0 +1,60 @@
+ilk önce düzenli calismak icin ana dizine dosyalarimizi ekliyoruz ve bunlar kücük harfler ile
+baslamak zorunda
+1-adapter
+2-model
+3-view
+4-viewModel
+5-util
+
+sonra Gradle eklentilerimizi ekliyoruz
+sonra faragmentlerinizi olusturuyoruz
+sonra xml tasarimlarimizi yapiyoruz
+
+sonra navigation_graph görünümümüzü olusturuyoruz böylece uygulama acilinca hangi fragmentler
+hangi sira ile görünecek onu ayarliyoruz
+
+sonra main_activity de FragmentContainer ini ekleyip olusturdugumuz navigation grafigimizi ekliyoruz
+
+
+sonra Listemizin olacagi fragment tasarim sayfsinda recyclerView mizi ekliyoiruz
+sonra recyclerRowumuzun tasarimini yapiyoruz
+
+sonra detail sayfamizin tasarimini yapiyoruz
+
+sonra RecyclerAdapter sinifimizi yaziyoruz
+sonra ViewModel sinifimizi olusturarak icerisine MultableLiveData (degistirilebilirdata) 
+sinifindan nesneler olusturarak recyclerView tasarim da ekledigimiz ve duruma göre görünüp gizlenecek
+görselleri burada tanimliyoruz
+
+    val umsatzs= MutableLiveData<List<Umsatz>>() //degistirilebilir demek
+    val umsHataMesaji = MutableLiveData<Boolean>()
+    val progressbar = MutableLiveData<Boolean>()
+
+sonra ViewModel icerisine verilerimizi alacagimiz refreshData diye bir fonksiyon tanimliyoruz
+
+  fun refreshData(){
+        val ums1= Umsatz("12","11","1","F","1","11")
+        val ums2= Umsatz("15","13.5","1.5","E","0","0")
+        val ums3= Umsatz("10","9.9","0.10","B","1","9.9")
+        val ums4= Umsatz("8","6.8","1.2","E","1","6.8")
+        val ums5= Umsatz("12","11","1","F","1","11")
+
+        val umsatzListesi= arrayListOf<Umsatz>(ums1,ums2,ums3,ums4,ums5)
+
+        umsatzs.value = umsatzListesi
+
+        umsHataMesaji.value = false
+        progressbar.value = false
+
+    }
+
+simdi UmsatzListesiFragment e gidiyoruz 
+olusturdugumuz ViewModel sinifimizdan bir nesne olusturuyoruz
+private lateinit var viewModel : umsatzListesiViewModel
+
+sonra olusturdugumuz RecyclerAdapter sinifimiizdan bir nesne olusturuyoruz
+private var recyclerUmsAdapter = UmsatzRecyclerAdapter(arrayListOf())
+
+sonra olusturdugumuz viewModel nesnesini inihalize yapip olusturmus oldugumuz ViewModel sinifi
+ile Fragmentimizi baglama islemi yapiyoruz
+bunuda 
