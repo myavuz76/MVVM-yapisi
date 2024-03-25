@@ -1,5 +1,9 @@
 XML icerisin de JAVA kodlari ile calismak daha verimlidir kotlin kodlari bazen sikinti cikarabilmektedirler
 
+bu java kodlarinin calisabilmesi icin MainActivity icerisine 
+binding.mainactivitynesnesi= this
+kodunu eklememiz gerekir
+
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout
