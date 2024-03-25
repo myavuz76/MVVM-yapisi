@@ -1,0 +1,7 @@
+LiveData tetikleme ve dinleme yapisidir
+LiveData ViewModel ile kullanilir
+
+LiveData yapisini kullabilmek icin ViewModel icerisinde ki Degiskenleri MutableLiveData yapisina
+cevirmemiz gerekir
+
+
