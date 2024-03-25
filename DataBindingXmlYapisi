@@ -1,0 +1,96 @@
+XML icerisin de JAVA kodlari ile calismak daha verimlidir kotlin kodlari bazen sikinti cikarabilmektedirler
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="mainactivitynesnesi" type="com.example.mykassa.MainActivity" />
+        <variable name="hesaplamaSonucu" type="String" />
+        <import type="android.view.View"/>
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/editTextSayi1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="69dp"
+        android:layout_marginEnd="101dp"
+        android:ems="10"
+        android:hint="@string/sayi1"
+        android:inputType="text"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewislemSonuc" />
+
+    <EditText
+        android:id="@+id/editTextSayi2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="101dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="45dp"
+        android:ems="10"
+        android:hint="Sayi 2"
+        android:inputType="text"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/ButonIslemYap"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSayi1" />
+
+    <Button
+        android:id="@+id/ButonIslemYap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="159dp"
+        android:layout_marginEnd="141dp"
+        android:layout_marginBottom="294dp"
+        android:text="@string/app_name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="@{() -> mainactivitynesnesi.toplamaIslemi(editTextSayi1.getText().toString(),editTextSayi2.getText().toString())}"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="157dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="127dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginEnd="127dp"
+        android:background="#2196F3"
+        android:gravity="center"
+        android:text="Islem Sonuc"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewislemSonuc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="160dp"
+        android:text="@{hesaplamaSonucu}"
+        android:background="@{Integer.parseInt(hesaplamaSonucu)> 10 ? @color/kirmizi : @color/white }"
+        android:textSize="16sp"
+        android:visibility="@{Integer.parseInt(hesaplamaSonucu)> 20 ? View.INVISIBLE : View.VISIBLE }"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
