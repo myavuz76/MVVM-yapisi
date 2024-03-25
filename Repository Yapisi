@@ -1,0 +1,5 @@
+ViewModel icerisinde yazdigimiz Fonksiyonlari alt alta yazmak karmasik olabiliyor 
+onun icin her bir islem icin bir Repository olusturuyoruz
+mesela Veritabaninislemlerinicin bir Repository olusturmak gibi
+bunu kullanmak zorunda degiliz
+ViewModel icerisindeki kodlari parcaliyoruz
